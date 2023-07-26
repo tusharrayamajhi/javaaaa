@@ -10,6 +10,8 @@ public class hello {
         while(sr<=er && sc < ec){
             for(int i =0;i<er;i++){
                 System.out.println(arr[i][sc]);
+                
+                
             }
         }
     }

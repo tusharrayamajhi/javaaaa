@@ -205,113 +205,7 @@ public class starpattern {
         }
     }
 
-    public static void reverse(int arr[]) {
-        int a = arr.length - 1;
-        int s = 0;
-        while (s < a) {
-            int temp = arr[s];
-            arr[s] = arr[a];
-            arr[a] = temp;
-            s++;
-            a--;
-        }
-    }
-
-    public static int binsearch(int n, int arr[]) {
-        int first = 0;
-        int last = arr.length - 1;
-        while (first <= last) {
-            int mid = (first + last) / 2;
-            if (n == arr[mid]) {
-                return mid;
-            } else if (n > arr[mid]) {
-                first = mid + 1;
-            } else {
-                last = mid - 1;
-            }
-
-        }
-        return -1;
-    }
-
-    public static void spiralmat(int[][] arr) {
-        int sr = 0;
-        int er = arr.length - 1;
-        int sc = 0;
-        int ec = arr[0].length - 1;
-        while (sr <= er && sc <= ec) {
-            for (int j = sc; j <= ec; j++) {
-                System.out.print(arr[sr][j] + " ");
-            }
-            sr++;
-            for (int j = sr; j <= er; j++) {
-                System.out.print(arr[j][ec] + " ");
-            }
-            ec--;
-            if (sr <= er) {
-                for (int j = ec; j >= sc; j--) {
-
-                    System.out.print(arr[er][j] + " ");
-                }
-                er--;
-            }
-            if (sc < -ec) {
-                for (int j = er - 1; j >= sr + 1; j--) {
-                    System.out.print(arr[j][sc] + " ");
-                }
-                sc++;
-            }
-
-        }
-        System.out.println();
-    }
-
-    public static void pari(int arr[]) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                System.out.println("(" + arr[i] + " " + arr[j] + ")");
-            }
-            System.out.println();
-        }
-    }
-
-    public static void subarray(int arr[]) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                System.out.print("(");
-                for (int k = i; k <= j; k++) {
-                    System.out.print(arr[k] + ",");
-                }
-                System.out.print(")");
-                System.out.println();
-            }
-            System.out.println();
-        }
-
-    }
-
-    public static void maxsubarray(int arr[], int sum) {
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                sum = 0;
-                for (int k = i; k <= j; k++) {
-                    sum += arr[k];
-                }
-                System.out.println(sum);
-                if (sum > max) {
-                    max = sum;
-                }
-                if (sum < min) {
-                    min = sum;
-                }
-            }
-        }
-        System.out.println("(" + max + ")");
-        System.out.println("(" + min + ")");
-
-    }
+    
 
     static int b = 6;
     static int c = 2;
@@ -378,26 +272,47 @@ public class starpattern {
         }
     }
 
+    
+    public static void numprymid() {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 4; j >= i; j--) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void palindromparttern() {
+        for (int i = 1; i < 5; i++) {
+            for (int j = 4; j >= i; j--) {
+                System.out.print("  ");
+            }
+            for (int j = i; j >= 1; j--) {
+                System.out.print(j + " ");
+            }
+            for (int j = 2; j <= i; j++) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+    }
+
+   
     public static void main(String[] args) {
         // starpat();
         // halfPyramid();
-        // ch();
-        // System.out.println(primornot(2));
-        // primeinrange(150);
-        // binTodec(011);
-        // Hollowpattern(4);
-        // int arr[] = { 1, 2, 3, 4, 5 };
-        // System.out.println(binsearch(2, arr));
-        // int arr[][] = {
-        // {1,2,3,4},
-        // {5,6,7,8},
-        // {9,10,11,12},
-        // };
-        // maxsubarray(arr,0);
         // invertrotatepyr(5);
         // floytraipatt(5);
         // rhombuspatt(5);
         // diamond2(15);
-        myname();
+        // myname();
+        // numprymid();
+        // palindromparttern();
+        
+
+        
     }
 }
