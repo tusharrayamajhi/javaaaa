@@ -1,3 +1,4 @@
+import java.util.*;
 public class string {
     public static boolean ispalindrom(String str) {
         for (int i = 0; i < str.length() - 1; i++) {
@@ -67,12 +68,43 @@ public class string {
         }
         System.out.println(newstr);
     }
-
+    public static boolean anagram(String str1,String str2){
+        
+        if(str1.length() == str2.length()){
+            char[] newstr1 = str1.toLowerCase().toCharArray();
+            char[] newstr2 = str2.toLowerCase().toCharArray();
+            Arrays.sort(newstr1);            
+            Arrays.sort(newstr2);
+            boolean result = Arrays.equals(newstr1,newstr2);
+            if(result){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+    public static void vouwel(String str){
+        int count=0;
+        for(int i =0;i<str.length();i++){
+            char ch = Character.toLowerCase(str.charAt(i));
+            if(ch == 'a'||ch =='e'||ch == 'i'||ch == 'o'||ch == 'u'){
+                count++;
+            }
+        }
+        System.out.println("vouwel comes= " + count + " times in the givern string");
+    }
     public static void main(String args[]) {
         // String str[] = {"bannana","apple","mango"};
         // String name = "my name is tushar";
         // toupper(name);
-        String str = "aabbcdeeeafff";
-        stringcompression(str);
+        // String str = "aabbcdeeeafff";
+        // stringcompression(str);
+        // String str1 = "heart";
+        // String str2 = "earth";
+        // System.out.println(anagram(str1, str2));
+        String str = "tushar";
+        vouwel(str);
     }
 }
