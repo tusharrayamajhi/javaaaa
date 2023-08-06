@@ -89,7 +89,7 @@ public class recursion {
         if(n == 1||n==2){
             return n;
         }
-        return parringfriends(n-1)+ parringfriends(n-1)*parringfriends(n-2);
+        return parringfriends(n-1) + (n-1)*parringfriends(n-2);
     }
     public static void main(String args[]){
         // decresingorder(10);
@@ -106,7 +106,7 @@ public class recursion {
         // String str = "abcdddeffghiiijjkkklmnopppqrsttuvwwxyzz";
         // StringBuilder ans = new StringBuilder("");
         // System.out.println(dublicateInString(str, new boolean[26], ans, 0));
-        System.out.println(parringfriends(3));
+        System.out.println(parringfriends(4));
 
 
     }
