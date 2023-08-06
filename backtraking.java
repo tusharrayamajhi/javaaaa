@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class backtraking {
     public static void printf(char arr[][]) {
         System.out.println("________chess_______");
@@ -65,27 +63,15 @@ public class backtraking {
     }
 
     public static boolean Safe(int board[][], int row, int col, int num) {
-        // vartical
-        for (int i = row - 1; i >= 0; i--) {
-            if (board[i][col] == num) {
+        //column
+        for(int i = 0;i<9;i++){
+            if(board[i][col]==num){
                 return false;
             }
         }
-        // bottom
-        for (int i = row + 1; i < board.length; i++) {
-            if (board[i][col] == num) {
-                return false;
-            }
-        }
-        // left
-        for (int i = col - 1; i >= 0; i--) {
-            if (board[row][i] == num) {
-                return false;
-            }
-        }
-        // right
-        for (int i = col + 1; i < board.length; i++) {
-            if (board[row][i] == num) {
+        
+        for(int i = 0;i<9;i++){
+            if(board[row][i]==num){
                 return false;
             }
         }
@@ -102,21 +88,29 @@ public class backtraking {
         return true;
     }
 
-    public static void suduko(int board[][], int row, int col) {
-        if (row == board.length && col == board.length) {
-            return;
+    public static boolean suduko(int board[][], int row, int col) {
+        if (row == 9) {
+            return true;
         }
-            for (int n =1; n <= 9; n++) {
-                if (board[row][col]==0 && Safe(board, row, col, n)) {
-                    board[row][col] = n;
-                    suduko(board, row, col + 1);
-                    suduko(board, row + 1, col);
-                    
+        int newrow = row;
+        int newcol = col+1;
+        if (col+1 == 9) {
+            newrow = row + 1;
+            newcol = 0;
+        }
+        if (board[row][col] != 0) {
+             return suduko(board, newrow, newcol);
+        }
+        for (int n = 1; n <= 9; n++) {
+            if (Safe(board, row, col, n)) {
+                board[row][col] = n;
+                if (suduko(board, newrow, newcol)) {
+                    return true;
                 }
+                board[row][col] = 0;
             }
-             
-        
-
+        }
+        return false;
     }
 
     public static void main(String args[]) {
@@ -129,18 +123,23 @@ public class backtraking {
         // }
         // nQueens(arr, 0);
         int arr[][] = {
-                { 0, 0, 1, 0, 7, 6, 0, 8, 9 },
-                { 6, 0, 0, 1, 0, 0, 7, 0, 0 },
-                { 0, 2, 0, 0, 4, 0, 3, 0, 0 },
-                { 0, 6, 0, 5, 0, 0, 0, 0, 3 },
-                { 1, 0, 0, 0, 6, 0, 0, 0, 0 },
-                { 0, 7, 0, 8, 2, 0, 1, 0, 5 },
-                { 4, 0, 0, 0, 5, 0, 0, 0, 8 },
-                { 2, 0, 0, 0, 0, 3, 5, 4, 0 },
-                { 0, 0, 0, 0, 0, 0, 0, 9, 1 },
+                { 0, 0, 0, 6, 8, 0, 9, 0, 0 },
+                { 0, 0, 0, 7, 0, 4, 0, 0, 0 },
+                { 0, 0, 7, 2, 0, 0, 8, 3, 0 },
+                { 7, 1, 0, 0, 2, 0, 0, 0, 0 },
+                { 4, 0, 0, 0, 0, 1, 6, 0, 7 },
+                { 5, 6, 0, 4, 0, 3, 0, 0, 0 },
+                { 8, 0, 0, 0, 0, 7, 4, 0, 0 },
+                { 0, 0, 0, 0, 6, 8, 3, 1, 0 },
+                { 0, 5, 0, 3, 4, 0, 0, 0, 0 },
         };
 
-        suduko(arr, 0, 0);
-        printboard(arr);
+        if(suduko(arr, 0, 0)){
+            printboard(arr);
+        }else{
+            System.out.println("don't exist");
+        }
+        
+        
     }
 }
