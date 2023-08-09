@@ -112,7 +112,7 @@ public class backtraking {
         }
         return false;
     }
-
+   
     public static void main(String args[]) {
         // int n = 4;
         // char arr[][]= new char[n][n];
@@ -123,15 +123,15 @@ public class backtraking {
         // }
         // nQueens(arr, 0);
         int arr[][] = {
-                { 0, 0, 0, 6, 8, 0, 9, 0, 0 },
-                { 0, 0, 0, 7, 0, 4, 0, 0, 0 },
-                { 0, 0, 7, 2, 0, 0, 8, 3, 0 },
-                { 7, 1, 0, 0, 2, 0, 0, 0, 0 },
-                { 4, 0, 0, 0, 0, 1, 6, 0, 7 },
-                { 5, 6, 0, 4, 0, 3, 0, 0, 0 },
-                { 8, 0, 0, 0, 0, 7, 4, 0, 0 },
-                { 0, 0, 0, 0, 6, 8, 3, 1, 0 },
-                { 0, 5, 0, 3, 4, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 4, 5, 0, 2, 0 },
+                { 0, 0, 7, 1, 0, 8, 6, 4, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 3, 1 },
+                { 3, 0, 2, 0, 5, 0, 4, 0, 6 },
+                { 0, 0, 0, 6, 0, 0, 0, 0, 0 },
+                { 0, 1, 0, 4, 0, 0, 0, 5, 3 },
+                { 6, 0, 0, 0, 2, 0, 0, 0, 0 },
+                { 0, 4, 9, 3, 6, 0, 1, 0, 0 },
+                { 0, 0, 0, 5, 1, 0, 9, 0, 0 },
         };
 
         if(suduko(arr, 0, 0)){
@@ -139,7 +139,9 @@ public class backtraking {
         }else{
             System.out.println("don't exist");
         }
+        StringBuilder sc = new StringBuilder("");
+        sc.append("a");
         
-        
+       
     }
 }
