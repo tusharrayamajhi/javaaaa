@@ -136,14 +136,6 @@ public class string {
 
         // System.out.println(isSubsequence("ush", str));
     //    System.out.println(ispalindrom("raceaecar"));
-    String s = "/// tuShar raya  majhi";
-    StringBuilder sc = new StringBuilder("");
-        s = s.toLowerCase();
-        for(int i = 0;i<s.length();i++){
-            if(s.charAt(i) > 'a' && s.charAt(i) < 'z'){
-                sc.append(s.charAt(i));
-            }
-        }
-        System.out.println(sc.toString());
+    
     }
 }
