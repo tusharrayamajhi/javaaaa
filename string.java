@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class string {
     public static boolean ispalindrom(String str) {
         for (int i = 0; i < str.length() - 1; i++) {

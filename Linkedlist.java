@@ -1,13 +1,9 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.stream.Collectors;
 
 public class Linkedlist {
     public static class Node {
         int data;
         Node next;
-
-        public Node(int data) {
+        Node(int data) {
             this.data = data;
             this.next = null;
         }
@@ -512,6 +508,77 @@ public class Linkedlist {
         curr1.next = curr2.next;
         curr2.next = temp;
     }
+    public Node mergesoet(Node head){
+        if(head.next == null){
+            return head;
+        }
+        Node mid = middle(head);
+        Node rightNode = mid.next;
+        mid.next = null;
+        Node left = mergesoet(head);
+        Node right = mergeSort(rightNode);
+        return mergetwoll(left,right);
+    }
+    public Node mergetwoll(Node left,Node right){
+        Node temp = new Node(-1);
+        Node curr = temp;
+        while(left != null && right != null){
+            if(left.data <= right.data){
+                temp.next = left;
+                temp= temp.next;
+                left = left.next;
+            }else{
+                temp.next =right;
+                temp = temp.next;
+                right = right.next;
+            }
+        }
+        if(left != null){
+            temp.next = left;
+        }
+        if(right != null){
+            temp.next  =right;
+        }
+        return curr.next;
+    }
+    public Node rev(Node head){
+        Node pre =null;
+        Node curr = head;
+        Node n;
+        while(curr!= null){
+            n = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = n;
+        }
+        return pre;
+    }
+    public Node zigzak(Node head){
+        if(head == null){
+            return head;
+        }
+        Node mid = middle(head);
+        Node right = mid.next;
+        mid.next = null;
+        Node temp = new Node(-1);
+        Node curr = temp;
+        Node rev = rev(right);
+        while(head != null && rev != null){
+            temp.next = head;
+            head= head.next;
+            temp = temp.next;;
+            temp.next = rev;
+            rev = rev.next;
+            temp = temp.next;
+        }
+        if(head != null){
+            temp.next = head;
+        }
+        if(rev != null){
+            temp.next = rev;
+        }
+        return curr.next;
+    }
 
     public static void main(String[] args) {
         Linkedlist ll = new Linkedlist();
@@ -519,30 +586,9 @@ public class Linkedlist {
         ll.addlast(8);
         ll.addlast(9);
         ll.addlast(6);
-        ll.addlast(7);
-        // head2 = new Node(3);
-        // head2.next = new Node(4);
-        // head2.next.next = new Node(5);
-        // head2.next.next.next = head.next.next;
-        // Node newNode = ll.getIntersectionNode(head,head2);
-        // System.out.println(newNode.data);
-        // ll.deleteNnodeAfterMnode(3, 3);
-        // ll.printLL();
-        // head = ll.oddeven();
-        // System.out.println();
-        // ll.printLL();
-        // System.out.println();
-        // swapNodes(head, 8, 9);
-        // ll.printLL();
-        int count = 0;
-        int n = 5;
-        while(n != 0){
-             int a = n|1;
-            if(a != n){
-                count++;
-            }
-            n = n >> 1;
-        }
-        System.out.println(2&1);
+        ll.addlast(7); 
+        ll.addlast(3);
+        head = ll.zigzak(head);
+        ll.printLL();
     }
 }
