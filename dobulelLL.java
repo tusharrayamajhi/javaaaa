@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class dobulelLL {
     public static class Node{
         int data;
@@ -32,15 +34,23 @@ public class dobulelLL {
         tail = newNode;
 
     }
+    public void removeFirst(){
+        if(head == null){
+            return;
+        }
+        
+        head = head.next;
+        head.pre = null;
+    }
     public void printll(){
         if(head == null){
             System.out.println("empty ll");
             return;
         }
-        Node temp = tail;
+        Node temp = head;
         while(temp != null){
             System.out.print(temp.data + " ");
-            temp = temp.pre;
+            temp = temp.next;
         }
         System.out.println();
     }
@@ -50,6 +60,8 @@ public class dobulelLL {
         ll.addLast(1);
         ll.addFirst(3);
         ll.addFirst(4);
+        ll.printll();
+        ll.removeFirst();
         ll.printll();
     }
 }
