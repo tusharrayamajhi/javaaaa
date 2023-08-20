@@ -116,7 +116,7 @@ public class stackQNS {
     public static int largestAreaInHistogram(int arr[]){
         int left[] = new int[arr.length];
         int right[] = new int[arr.length];
-        for()
+        
     }
     public static void main(String[] args) {
        String str = "(a)()";
