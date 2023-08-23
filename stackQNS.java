@@ -113,11 +113,6 @@ public class stackQNS {
         }
         return false;
     }
-    public static int largestAreaInHistogram(int arr[]){
-        int left[] = new int[arr.length];
-        int right[] = new int[arr.length];
-        
-    }
     public static void main(String[] args) {
        String str = "(a)()";
        System.out.println(isDublicatepar(str));
