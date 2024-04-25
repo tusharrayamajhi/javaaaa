@@ -1,5 +1,5 @@
 public class kalika {
-    static int n = 60;
+    static int n = 20;
     public static void A(){
 
         for(int a = 0;a<n;a++){
@@ -27,7 +27,7 @@ public class kalika {
             System.out.println();
         }
     }
-    public static void curve(){
+    private static void curve(){
         for(int a = 0;a<n;a++){
             for(int j = 0;j<n;j++){
                 if(a >=0&&a<=n/10||j >=0&&j<=n/10||j>=n-n/5&&j<=n||a==n/3||a==n/2||a==n-n/5||a==n-n/10){
@@ -39,6 +39,10 @@ public class kalika {
             }
             System.out.println();
         }
+    }
+    private class Innerkalika {
+        
+        
     }
     public static void main(String[] args) {
         // A();
